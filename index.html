@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetroMart Shopping Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">MetroMart</div>
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="#" data-category="all" class="nav-link active">All Products</a></li>
+                    <li><a href="#" data-category="electronics" class="nav-link">Electronics</a></li>
+                    <li><a href="#" data-category="clothing" class="nav-link">Clothing</a></li>
+                    <li><a href="#" data-category="home" class="nav-link">Home</a></li>
+                    <li><a href="#" data-category="sports" class="nav-link">Sports</a></li>
+                    <li><a href="#" data-category="beauty" class="nav-link">Beauty</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
+                    <button id="searchBtn" class="search-btn">🔍</button>
+                    <div id=" searchResults" class="search-results"></div>
+                </div>
+                <button class="cart-btn" id="cartBtn">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <div class="hero-content container">
+                <h1>Deals of the Day</h1>
+                <p>Up to 50% off on selected items — limited time only!</p>
+                <a href="#" class="hero-btn">Shop Now</a>
+            </div>
+        </section>
+
+        <!-- Category Highlights -->
+        <section class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <a href="#" data-category="electronics" class="category-card">
+                    <div class="cat-img"><img src="img_0.jpg" alt="Electronics"></div>
+                    <h3>Electronics</h3>
+                </a>
+                <a href="#" data-category="clothing" class="category-card">
+                    <div class="cat-img"><img src="img_1.jpg" alt="Clothing"></div>
+                    <h3>Clothing</h3>
+                </a>
+                <a href="#" data-category="home" class="category-card">
+                    <div class="cat-img"><img src="img_2.jpg" alt="Home"></div>
+                    <h3>Home & Kitchen</h3>
+                </a>
+                <a href="#" data-category="sports" class="category-card">
+                    <div class="cat-img"><img src="img_3.jpg" alt="Sports"></div>
+                    <h3>Sports & Outdoors</h3>
+                </a>
+                <a href="#" data-category="beauty" class="category-card">
+                    <div class="cat-img"><img src="img_4.jpg" alt="Beauty"></div>
+                    <h3>Beauty</h3>
+                </a>
+            </div>
+        </section>
+
+        <!-- Product Grid -->
+        <section class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="product-grid" id="productGrid">
+                <!-- Products populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Deals Section -->
+        <section class="deals-section">
+            <div class="container">
+                <h2 class="section-title">Special Offers</h2>
+                <div class="product-grid" id="dealsGrid">
+                    <!-- Deals populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>"Great quality and fast delivery! MetroMart never disappoints."</p>
+                    <span>— Sarah M.</span>
+                </div>
+                <div class="testimonial">
+                    <p>"Amazing deals and the website is so easy to use on mobile."</p>
+                    <span>— James T.</span>
+                </div>
+                <div class="testimonial">
+                    <p>"I always find what I need here. Five stars!"</p>
+                    <span>— Maria L.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Join Our Newsletter</h2>
+                    <p>Subscribe for exclusive offers and new product announcements.</p>
+                    <form id="newsletterForm" class="newsletter-form">
+                        <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <button class="close-cart" id="closeCart">✕</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="cart-total">
+                    <span>Discount:</span>
+                    <span id="cartDiscount">-$0.00</span>
+                </div>
+                <div class="cart-total grand-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <nav class="mobile-menu" id="mobileMenu">
+            <button class="close-menu" id="closeMenu">✕</button>
+            <ul>
+                <li><a href="#" data-category="all" class="mobile-nav-link active">All Products</a></li>
+                <li><a href="#" data-category="electronics" class="mobile-nav-link">Electronics</a></li>
+                <li><a href="#" data-category="clothing" class="mobile-nav-link">Clothing</a></li>
+                <li><a href="#" data-category="home" class="mobile-nav-link">Home</a></li>
+                <li><a href="#" data-category="sports" class="mobile-nav-link">Sports</a></li>
+                <li><a href="#" data-category="beauty" class="mobile-nav-link">Beauty</a></li>
+                <li><a href="#" id="mobileCartLink">My Cart (0)</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>MetroMart</h3>
+                    <p>Your one-stop shopping destination for quality products at great prices.</p>
+                    <div class="social-icons">
+                        <a href="#">📘</a>
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                        <a href="#">💼</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Clothing</a></li>
+                        <li><a href="#">Home & Kitchen</a></li>
+                        <li><a href="#">Sports</a></li>
+                        <li><a href="#">Beauty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Email: support@metromart.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>123 Shopping Ave, New York, NY</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MetroMart Shopping Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
